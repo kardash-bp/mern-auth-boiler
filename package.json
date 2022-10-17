@@ -1,0 +1,31 @@
+{
+  "name": "mern-auth-boiler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch:back": "cd server && npm start",
+    "watch:front": "cd client && npm start",
+    "start": "concurrently -k npm:watch:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kardash-bp/mern-auth-boiler.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kardash-bp/mern-auth-boiler/issues"
+  },
+  "homepage": "https://github.com/kardash-bp/mern-auth-boiler#readme",
+  "devDependencies": {
+    "concurrently": "^7.4.0"
+  },
+  "dependencies": {
+    "@mui/icons-material": "^5.10.9",
+    "@types/react-router-dom": "^5.3.3",
+    "axios": "^1.1.3",
+    "react-router-dom": "^6.4.2"
+  }
+}
