@@ -12,6 +12,7 @@ app.use(helmet())
 app.use(morgan('tiny'))
 app.use(
   cors({
+    credentials: true,
     origin: ['http://localhost:3000'],
   })
 )
@@ -20,7 +21,10 @@ app.use(cookieParser())
 app.use(express.static('public'))
 const port = process.env.PORT
 
-app.use('/', authRouter)
+app.use('/v1', authRouter)
+app.get('/v1', (req, res) => {
+  res.send('<h1>HOME PAGE</h1>')
+})
 app.listen(port, () => {
   console.log(`Server is up and running on port: ${port}`)
 })

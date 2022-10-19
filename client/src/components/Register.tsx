@@ -6,7 +6,6 @@ import CssBaseline from '@mui/material/CssBaseline'
 import TextField from '@mui/material/TextField'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Checkbox from '@mui/material/Checkbox'
-//import Link from '@mui/material/Link'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
@@ -15,23 +14,8 @@ import Container from '@mui/material/Container'
 import { ThemeProvider } from '@mui/material/styles'
 import { appTheme } from '../themes/theme'
 import { registerUser } from '../services/authRequests'
-function Copyright(props: any) {
-  return (
-    <Typography
-      variant='body2'
-      color='text.secondary'
-      align='center'
-      {...props}
-    >
-      {'Copyright © '}
-      <Typography color='inherit' to='/user' component={Link}>
-        MERN Auth
-      </Typography>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  )
-}
+import Copyright from './Copyright'
+
 const Register = () => {
   const [inputs, setInputs] = useState({
     name: '',
@@ -71,11 +55,13 @@ const Register = () => {
             noValidate
             onSubmit={handleSubmit}
             sx={{ mt: 3 }}
+            autoComplete='off'
           >
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
-                  autoComplete='given-name'
+                  type='text'
+                  autoComplete='off'
                   name='name'
                   required
                   fullWidth
@@ -89,12 +75,16 @@ const Register = () => {
 
               <Grid item xs={12}>
                 <TextField
+                  type='email'
                   required
                   fullWidth
                   id='email'
                   label='Email Address'
                   name='email'
-                  autoComplete='email'
+                  autoCapitalize='off'
+                  autoComplete='off'
+                  autoCorrect='off'
+                  spellCheck='false'
                   value={inputs.email}
                   onChange={handleChange}
                 />
@@ -107,7 +97,7 @@ const Register = () => {
                   label='Password'
                   type='password'
                   id='password'
-                  autoComplete='new-password'
+                  autoComplete='off'
                   value={inputs.password}
                   onChange={handleChange}
                 />

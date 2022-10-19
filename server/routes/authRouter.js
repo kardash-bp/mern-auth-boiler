@@ -4,7 +4,7 @@ const { signUp, login, authUser } = require('./authController')
 const authRouter = express.Router()
 
 authRouter.post('/login', login)
-authRouter.post('/signup', signUp)
+authRouter.post('/register', signUp)
 authRouter.get('/user', isAuth, authUser)
 
 module.exports = authRouter
